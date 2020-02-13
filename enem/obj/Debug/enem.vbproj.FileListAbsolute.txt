@@ -1,0 +1,10 @@
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\bin\Debug\enem.exe.config
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\bin\Debug\enem.exe
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\bin\Debug\enem.pdb
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\bin\Debug\enem.xml
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.Form1.resources
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.Resources.resources
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.vbproj.GenerateResource.Cache
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.exe
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.xml
+c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.pdb
