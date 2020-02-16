@@ -8,3 +8,4 @@ c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.v
 c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.exe
 c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.xml
 c:\users\tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.pdb
+C:\Users\Tenata\documents\visual studio 2013\Projects\enem\enem\obj\Debug\enem.Register.resources
