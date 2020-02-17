@@ -103,24 +103,43 @@ Public Class Register
                 FileSystem.Rename("C:/Temp/ENE/user/" & TextBox1.Text & "/pass.txt", "C:/Temp/ENE/user/" & TextBox1.Text & "/pass.cag")
 
 
-
                 Dim RequestFolderCreate As Net.FtpWebRequest = CType(FtpWebRequest.Create("ftp://chattenata.xp3.biz/users/" & TextBox1.Text), FtpWebRequest)
                 RequestFolderCreate.Credentials = New NetworkCredential("chattenata.xp3.biz", "narutomortal1")
                 RequestFolderCreate.Method = WebRequestMethods.Ftp.MakeDirectory
 
-                Dim se As FtpWebRequest = DirectCast(WebRequest.Create("ftp://chattenata.xp3.biz/users/" & TextBox1.Text & "/"), FtpWebRequest)
-                se.Method = WebRequestMethods.Ftp.UploadFile
-                se.Credentials = New NetworkCredential("chattenata.xp3.biz", "narutomortal1")
+                Try
+                    Using response As FtpWebResponse = DirectCast(RequestFolderCreate.GetResponse(), FtpWebResponse)
 
-                se.Method = WebRequestMethods.Ftp.UploadFile
-                Dim btfile() As Byte = File.ReadAllBytes("C:/Temp/ENE/user/" & TextBox1.Text & "/pass.cag")
-                Dim strFile As Stream = se.GetRequestStream()
+                    End Using
 
-                strFile.Write(btfile, 0, btfile.Length)
+                Catch ex As Exception
 
-                strFile.Close()
+                End Try
 
-                strFile.Dispose()
+                Try
+                    Dim ftpRequest As FtpWebRequest = CType(WebRequest.Create("ftp://chattenata.xp3.biz/users/" & TextBox1.Text & "/pass.cag"), FtpWebRequest)
+
+                    ftpRequest.Method = WebRequestMethods.Ftp.UploadFile
+
+                    ftpRequest.Credentials = New NetworkCredential("chattenata.xp3.biz", "narutomortal1")
+
+                    Dim bytes() As Byte = System.IO.File.ReadAllBytes("C:/temp/ENE/user/" & TextBox1.Text & "/pass.cag")
+
+                    ftpRequest.ContentLength = bytes.Length
+                    Using UploadStream As Stream = ftpRequest.GetRequestStream()
+                        UploadStream.Write(bytes, 0, bytes.Length)
+                        UploadStream.Close()
+                    End Using
+                Catch ex As Exception
+                    MessageBox.Show(ex.Message)
+                    Exit Sub
+                End Try
+
+                FileSystem.Kill("C:/temp/ENE/user/" & TextBox1.Text)
+                MsgBox("Concluido", MsgBoxStyle.OkOnly)
+                Form1.Show()
+                Finalize()
+
             Else
                 cont += 1
 
