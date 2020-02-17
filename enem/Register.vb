@@ -8,6 +8,7 @@ Public Class Register
     Dim leraf As IO.StreamReader
     Dim codigo As Integer = 0
     Dim cont As Integer = 0
+    Dim mp As Integer = 0
 #End Region
 
 
@@ -97,7 +98,7 @@ Public Class Register
                 FileSystem.MkDir("C:/Temp/ENE/user/" & TextBox1.Text)
                 Dim path As String = ("C:/Temp/ENE/user/" & TextBox1.Text & "/pass.txt")
                 Dim fs As FileStream = File.Create(path)
-                Dim info As Byte() = New UTF8Encoding(True).GetBytes(TextBox3.Text)
+                Dim info As Byte() = New UTF8Encoding(True).GetBytes(TextBox3.Text & vbLf & TextBox2.Text)
                 fs.Write(info, 0, info.Length)
                 fs.Close()
                 FileSystem.Rename("C:/Temp/ENE/user/" & TextBox1.Text & "/pass.txt", "C:/Temp/ENE/user/" & TextBox1.Text & "/pass.cag")
@@ -135,17 +136,40 @@ Public Class Register
                     Exit Sub
                 End Try
 
-                FileSystem.Kill("C:/temp/ENE/user/" & TextBox1.Text)
+                FileSystem.Kill("C:/temp/ENE/user/" & TextBox1.Text & "/pass.cag")
+                FileSystem.RmDir("C:/temp/ENE/user/" & TextBox1.Text)
                 MsgBox("Concluido", MsgBoxStyle.OkOnly)
                 Form1.Show()
-                Finalize()
+                Me.Finalize()
 
             Else
                 cont += 1
 
             End If
+        ElseIf cont = 4 Then
+            Panel1.Visible = False
+            MsgBox("Você tentou muitas vezes, verifique seu email e tente novamente", MsgBoxStyle.OkOnly)
+            TextBox1.Select()
+            TextBox1.Text = ""
+            TextBox2.Text = ""
+            TextBox3.Text = ""
+            TextBox4.Text = ""
         End If
 
     End Sub
 
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        If TextBox3.Text = "" Then
+        Else
+            If mp = 0 Then
+                mp = 1
+                TextBox3.PasswordChar = ""
+                Button5.Text = "#"
+            ElseIf mp = 1 Then
+                mp = 0
+                TextBox3.PasswordChar = "#"
+                Button5.Text = "Y"
+            End If
+        End If
+    End Sub
 End Class

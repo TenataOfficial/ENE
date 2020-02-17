@@ -33,9 +33,10 @@ Partial Class Register
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.Button4 = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -47,6 +48,7 @@ Partial Class Register
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(160, 20)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox2
         '
@@ -56,15 +58,18 @@ Partial Class Register
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(160, 20)
         Me.TextBox2.TabIndex = 1
+        Me.TextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'TextBox3
         '
         Me.TextBox3.BackColor = System.Drawing.Color.Aqua
         Me.TextBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox3.Location = New System.Drawing.Point(52, 138)
+        Me.TextBox3.Location = New System.Drawing.Point(80, 138)
         Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(160, 20)
+        Me.TextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(35)
+        Me.TextBox3.Size = New System.Drawing.Size(132, 20)
         Me.TextBox3.TabIndex = 2
+        Me.TextBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Button1
         '
@@ -147,12 +152,15 @@ Partial Class Register
         Me.Panel1.TabIndex = 10
         Me.Panel1.Visible = False
         '
-        'TextBox4
+        'Label5
         '
-        Me.TextBox4.Location = New System.Drawing.Point(46, 101)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 0
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(3, 66)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(186, 21)
+        Me.Label5.TabIndex = 2
+        Me.Label5.Text = "Código de Verificação"
         '
         'Button4
         '
@@ -164,22 +172,29 @@ Partial Class Register
         Me.Button4.Text = "Verificar"
         Me.Button4.UseVisualStyleBackColor = True
         '
-        'Label5
+        'TextBox4
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(3, 66)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(186, 21)
-        Me.Label5.TabIndex = 2
-        Me.Label5.Text = "Código de Verificação"
+        Me.TextBox4.Location = New System.Drawing.Point(46, 101)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox4.TabIndex = 0
+        '
+        'Button5
+        '
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Location = New System.Drawing.Point(52, 136)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(22, 23)
+        Me.Button5.TabIndex = 11
+        Me.Button5.Text = "Y"
+        Me.Button5.UseVisualStyleBackColor = True
         '
         'Register
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Aqua
-        Me.ClientSize = New System.Drawing.Size(224, 257)
+        Me.ClientSize = New System.Drawing.Size(224, 235)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Button3)
@@ -192,6 +207,7 @@ Partial Class Register
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.Button5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Register"
         Me.Text = "Register"
@@ -215,4 +231,5 @@ Partial Class Register
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Button5 As System.Windows.Forms.Button
 End Class
